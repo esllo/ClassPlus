@@ -3,7 +3,7 @@ chrome.runtime.onInstalled.addListener((details) => {
     case "install":
       const data = {
         table_us: true,
-        video_us: true,
+        video_us: false,
       }
       chrome.storage.sync.set({ data })
       break

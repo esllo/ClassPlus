@@ -31,6 +31,11 @@ input[type='checkbox']:checked {
   margin-left: 0;
 }
 
+input[type='checkbox']:disabled {
+  background-color: rgb(100, 100, 100);
+  content: 'x';
+}
+
 .settings {
   max-width: 240px;
   min-width: 220px;
