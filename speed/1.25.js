@@ -1,1 +1,0 @@
-jwplayer().setPlaybackRate(1.25)
