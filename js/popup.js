@@ -19,8 +19,8 @@
   function getData() {
     chrome.storage.sync.get("data", (data) => {
       _data = data.data
-      _disabled.table_us && (table_us.checked = _data.table_us)
-      _disabled.video_us && (video_us.checked = _data.video_us)
+      !_disabled.table_us && (table_us.checked = _data.table_us)
+      !_disabled.video_us && (video_us.checked = _data.video_us)
     })
   }
 
