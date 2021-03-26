@@ -47,10 +47,10 @@
     const groupedButton = document.createElement('div')
     groupedButton.className = 'cp-grouped-button'
 
-    const speeds = [1.00, 1.25, 1.5, 1.75, 2]
+    const speeds = [0.6, 0.8, 1, 1.1, 1.2]
     speeds.forEach((speed, index) => {
       const button = document.createElement('button')
-      if (index == 0) {
+      if (index == 2) {
         button.className = 'selected'
       }
       button.textContent = speed
