@@ -44,7 +44,7 @@
         "css/table_us.css",
         "images/TR_GR.png"
       ],
-      "matches": ["<all_urls>"]
+      "matches": ["http://*.ac.kr/*", "https://*.ac.kr/*"]
     }
   ]
 }
