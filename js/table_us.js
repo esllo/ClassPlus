@@ -69,8 +69,7 @@
           content.appendChild(row)
         }
       }).catch(e => {
-        console.error(e)
-        console.error('Error Occured while Fetching data from ' + href)
+        console.log(e, href)
       })
     })
   }
