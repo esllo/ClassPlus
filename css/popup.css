@@ -1,0 +1,137 @@
+* {
+  user-select: none;
+  outline: none;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(0, 0, 0, 0.9);
+  height: 100vh;
+}
+
+input[type='checkbox'] {
+  background-color: rgb(210, 210, 210);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 12px;
+  width: 12px;
+  transition: all 0.5s;
+  margin: 0;
+  margin-left: 12px;
+  border-radius: 6px;
+}
+
+input[type='checkbox']:checked {
+  background-color: rgb(74, 151, 36);
+  /* border: 1px solid rgba(210, 210, 210, 0.5); */
+  box-sizing: border-box;
+  margin-left: 0;
+}
+
+.settings {
+  max-width: 240px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(50, 50, 50, 1);
+}
+
+.logo {
+  height: 58px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  display: flex;
+  user-select: none;
+  cursor: default;
+  padding: 0px 0px;
+  align-items: center;
+}
+
+.logo-image {
+  width: 40px;
+  height: 40px;
+  margin: 4px 12px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo-text-title {
+  font-size: 14px;
+  color: rgb(88, 128, 68);
+  margin: 0px;
+}
+
+.logo-text-small {
+  font-size: 13px;
+  color: rgb(221, 221, 221);
+}
+
+.table {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.table > p {
+  color: rgb(88, 128, 68);
+  font-size: 14px;
+  font-weight: bold;
+  margin: 8px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.table > p > span > span {
+  font-size: 10px;
+}
+
+.table > p > span > span:first-child {
+  color: rgb(74, 151, 36);
+}
+.table > p > span > span:last-child {
+  color: rgb(210, 210, 210);
+}
+
+.table-row {
+  margin: 10px 10px;
+  line-height: 20px;
+  color: rgb(240, 240, 240);
+  font-size: 14px;
+}
+
+.table-row > label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.table-row > label > div {
+  width: 24px;
+  height: 12px;
+  display: flex;
+  background-color: rgb(143, 143, 143);
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.footer {
+  margin: 6px;
+  color: rgb(88, 128, 68);
+}
+.footer > p {
+  font-size: 13px;
+  margin: 4px;
+  color: rgb(210, 210, 210);
+  user-select: text;
+}
+.footer > p:first-child {
+  user-select: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(88, 128, 68);
+}

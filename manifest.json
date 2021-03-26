@@ -1,0 +1,50 @@
+{
+  "name": "ClassPlus",
+  "description": "코스모스 플랫폼 학생을 위한 확장 프로그램",
+  "version": "1.0.0",
+  "author": "esllo",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "128": "/images/TR_GR.png"
+  },
+  "permissions": ["storage"],
+  "host_permissions": [
+    "http://*.ac.kr/mod/vod/viewer.php*",
+    "https://*.ac.kr/mod/vod/viewer.php*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_page": "popup.html",
+  "content_scripts": [
+    {
+      "matches": ["http://*.ac.kr/*", "https://*.ac.kr/*"],
+      "js": ["classplus.js"]
+    },
+    {
+      "matches": [
+        "http://*.ac.kr/mod/vod/viewer.php*",
+        "https://*.ac.kr/mod/vod/viewer.php*"
+      ],
+      "js": ["videoHelper.js"]
+    },
+    {
+      "matches": ["http://*.ac.kr/", "https://*.ac.kr/"],
+      "js": ["tableHelper.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "js/video_us.js",
+        "js/table_us.js",
+        "css/table_us.css",
+        "images/TR_GR.png"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+jwplayer().setPlaybackRate(1.0)
