@@ -27,11 +27,8 @@
 
   function init() {
     if (checkCourseMos()) {
-      console.log('cosmos detected.')
-
       chrome.storage.sync.get("data", (data) => {
         data = data.data
-        console.log(data, data.table_us)
         if (data.table_us) {
           insertCSS(chrome.runtime.getURL('css/table_us.css'))
           insertJS(chrome.runtime.getURL('js/table_us.js'))
