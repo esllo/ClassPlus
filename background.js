@@ -4,6 +4,7 @@ chrome.runtime.onInstalled.addListener((details) => {
       const data = {
         table_us: true,
         video_us: false,
+        short_us: true,
       }
       chrome.storage.sync.set({ data })
       break

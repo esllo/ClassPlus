@@ -16,8 +16,6 @@
 
   function init() {
     if (checkCourseMos()) {
-      console.log('cosmos detected.')
-
       chrome.storage.sync.get("data", (data) => {
         data = data.data
         if (data.video_us) {

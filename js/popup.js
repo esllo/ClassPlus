@@ -1,16 +1,16 @@
 (() => {
+  const _labels = ['table_us', 'video_us', 'short_us']
   let _data = {
     table_us: true,
     video_us: false,
+    short_us: true,
   }
-  let _disabled = {
+  const _disabled = {
     table_us: false,
     video_us: true,
+    short_us: false,
   }
-  const table_us = document.getElementById('table_us')
-  const video_us = document.getElementById('video_us')
-  table_us.disabled = _disabled.table_us
-  video_us.disabled = _disabled.video_us
+  const _us = {}
 
   function setData(data) {
     chrome.storage.sync.set({ data })
@@ -19,22 +19,23 @@
   function getData() {
     chrome.storage.sync.get("data", (data) => {
       _data = data.data
-      !_disabled.table_us && (table_us.checked = _data.table_us)
-      !_disabled.video_us && (video_us.checked = _data.video_us)
+      Object.keys(_us).forEach(label => {
+        if (!_disabled[label]) {
+          _us[label].checked = _data[label]
+        }
+      })
     })
   }
 
-  table_us.onclick = (e) => {
-    if (_disabled.table_us) return
-    _data.table_us = e.target.checked
-    setData(_data)
-  }
-  video_us.onclick = (e) => {
-    if (_disabled.video_us) return
-    console.log('work on')
-    _data.video_us = e.target.checked
-    setData(_data)
-  }
+  _labels.forEach(label => {
+    _us[label] = document.getElementById(label)
+    _us[label].disabled = _disabled[label]
+    _us[label].onclick = ({ target }) => {
+      if (_disabled[label]) return
+      _data[label] = target.checked
+      setData(_data)
+    }
+  })
 
   getData()
 })()

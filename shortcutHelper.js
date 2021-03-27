@@ -4,12 +4,12 @@
   }
 
   function insertJS(src) {
-    const before = document.getElementById('cp-control')
+    const before = document.getElementById('cp-short')
     if (before) {
       document.body.removeChild(before)
     }
     const script = document.createElement('script')
-    script.id = 'cp-control'
+    script.id = 'cp-short'
     script.src = src
     document.body.appendChild(script)
   }
@@ -29,9 +29,9 @@
     if (checkCourseMos()) {
       chrome.storage.sync.get("data", (data) => {
         data = data.data
-        if (data.table_us) {
-          insertCSS(chrome.runtime.getURL('css/table_us.css'))
-          insertJS(chrome.runtime.getURL('js/table_us.js'))
+        if (data.short_us) {
+          insertCSS(chrome.runtime.getURL('css/short_us.css'))
+          insertJS(chrome.runtime.getURL('js/short_us.js'))
         }
       })
     }
