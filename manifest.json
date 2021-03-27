@@ -3,19 +3,15 @@
   "description": "코스모스 플랫폼 학생을 위한 확장 프로그램",
   "version": "0.1.0",
   "author": "esllo",
-  "manifest_version": 3,
+  "manifest_version": 2,
   "background": {
-    "service_worker": "background.js"
+    "scripts": ["background.js"]
   },
   "icons": {
     "128": "/images/TR_GR.png"
   },
   "permissions": ["storage"],
-  "host_permissions": [
-    "http://*.ac.kr/mod/vod/viewer.php*",
-    "https://*.ac.kr/mod/vod/viewer.php*"
-  ],
-  "action": {
+  "browser_action": {
     "default_popup": "popup.html"
   },
   "options_page": "popup.html",
@@ -36,10 +32,5 @@
       "js": ["tableHelper.js", "shortcutHelper.js"]
     }
   ],
-  "web_accessible_resources": [
-    {
-      "resources": ["css/*.css", "js/*.js", "images/TR_GR.png"],
-      "matches": ["http://*.ac.kr/*", "https://*.ac.kr/*"]
-    }
-  ]
+  "web_accessible_resources": ["js/*.js", "css/*.css", "images/TR_GR.png"]
 }
