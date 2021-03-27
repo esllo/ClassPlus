@@ -32,18 +32,13 @@
       "js": ["videoHelper.js"]
     },
     {
-      "matches": ["http://*.ac.kr/", "https://*.ac.kr/"],
-      "js": ["tableHelper.js"]
+      "matches": ["http://*.ac.kr/*", "https://*.ac.kr/*"],
+      "js": ["tableHelper.js", "shortcutHelper.js"]
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": [
-        "js/video_us.js",
-        "js/table_us.js",
-        "css/table_us.css",
-        "images/TR_GR.png"
-      ],
+      "resources": ["css/*.css", "js/*.js", "images/TR_GR.png"],
       "matches": ["http://*.ac.kr/*", "https://*.ac.kr/*"]
     }
   ]

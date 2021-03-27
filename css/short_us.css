@@ -1,0 +1,44 @@
+.course_box {
+  position: relative;
+}
+.course-name {
+  display: flex;
+}
+.cp-short-group {
+  position: absolute;
+  top: 23px;
+  left: 172px;
+  display: flex;
+  width: 112px;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0 4px;
+}
+.course-title {
+  margin-left: 116px !important;
+  flex: 1;
+  overflow: auto;
+}
+.cp-short-group > button {
+  outline: none;
+  width: 54px;
+  font-size: 12px;
+  padding: 2px;
+  margin: 1px;
+}
+.cp-short-group > button:nth-child(1) {
+  color: #dd695f;
+  border-color: #dd695f;
+}
+.cp-short-group > button:nth-child(2) {
+  color: #7ab4cb;
+  border-color: #7ab4cb;
+}
+.cp-short-group > button:nth-child(3) {
+  color: #8c8985;
+  border-color: #8c8985;
+}
+.cp-short-group > button:nth-child(4) {
+  color: #ba66a9;
+  border-color: #ba66a9;
+}
