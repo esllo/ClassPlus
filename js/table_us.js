@@ -25,7 +25,7 @@
       action.appendChild(actionToggle)
       title.appendChild(action)
       const titleText = document.createElement('h2')
-      titleText.textContent = '강의 요약'
+      titleText.textContent = '온라인 강의 요약'
       title.appendChild(titleText)
       header.appendChild(title)
       block.appendChild(header)
