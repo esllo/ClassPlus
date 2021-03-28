@@ -4,11 +4,6 @@
 .course-name {
   display: flex;
 }
-.course-title {
-  margin-left: 116px !important;
-  flex: 1;
-  overflow: auto;
-}
 .course-title > .prof {
   display: inline;
 }
@@ -16,6 +11,11 @@
   position: absolute;
   top: 8px;
   font-size: 14px;
-  color: #ea2f41;
+  color: rgb(37, 45, 168);
+  height:20px;
+  overflow: hidden;
   margin: 0;
+}
+.cp-report-label.accent{
+  color: #ea2f41;
 }
