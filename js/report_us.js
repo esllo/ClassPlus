@@ -3,7 +3,7 @@
   const HOST = location.host
   const BASE_URL = `${PROTOCOL}//${HOST}/mod/assign/`
 
-  function insertReportLabel(parent, id, text) {
+  function insertReportLabel(parent, id) {
     const numId = id.split('=')[1]
     const elementId = `cp-report-${numId}`
     const before = document.getElementById(elementId)
@@ -15,15 +15,16 @@
       if (tbody.length === 3) {
         const [, html] = tbody
         const inProgress = (html.match(/\>미제출\</g) || []).length
+        const p = document.createElement('p')
+        p.className = `cp-report-label`
         if (inProgress > 0) {
-          const p = document.createElement('p')
-          p.className = `cp-report-label`
-          p.textContent = `미제출 과제 : ${inProgress}`
-          const prof = parent.querySelector('.prof')
-          const left = prof.offsetLeft
-          p.style.left = `${left}px`
-          return [parent, p]
+          p.classList.add('accent')
         }
+        p.textContent = `미제출 과제 : ${inProgress}`
+        const prof = parent.querySelector('.prof')
+        const left = prof.offsetLeft
+        p.style.left = `${left}px`
+        return [parent, p]
       }
       return []
     })
@@ -37,11 +38,13 @@
         return insertReportLabel(parentElement, id)
       }
     })).then((res) => res.forEach(({ value: [parent, p] }) => parent && parent.appendChild(p))).finally(() => {
-      ClassPlus && ClassPlus.hideLoading()
+      ClassPlus?.hideLoading()
     })
   }
 
-  ClassPlus && ClassPlus.showLoading('미제출 과제 로딩중...')
-  applyReports()
-  console.log('Report Plugin!')
+  if ((location.pathname || " ").substr(1).indexOf("/") === -1) {
+    ClassPlus?.showLoading('미제출 과제 로딩중...')
+    applyReports()
+    console.log('Report Plugin!')
+  }
 })()
