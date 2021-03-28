@@ -8,7 +8,7 @@
   }
   const _disabled = {
     table_us: false,
-    video_us: true,
+    video_us: false,
     short_us: false,
     report_us: false,
   }
