@@ -15,11 +15,12 @@
   }
 
   function insertCSS(href) {
-    const before = document.getElementById('cp-style')
+    const before = document.getElementById('cp-srt-style')
     if (before) {
       document.head.removeChild(before)
     }
     const style = document.createElement('link')
+    style.id = 'cp-srt-style'
     style.rel = 'stylesheet'
     style.href = href
     document.head.appendChild(style)
