@@ -3,12 +3,11 @@
   const HOST = location.host
   const BASE_URL = `${PROTOCOL}//${HOST}/report/ubcompletion/user_progress.php`
 
-  function timeToDecimal(time){
-    if(time.indexOf(':') === -1) return (Number(time) || 0)
+  function timeToDecimal(time) {
+    if (time.indexOf(':') === -1) return (Number(time) || 0)
     const splitted = time.split(':')
-    if(!splitted) 
     return splitted.reduce((previous, current) => {
-      return previous * 60 + (Number(current) || 0);
+      return previous * 60 + (Number(current) || 0)
     }, 0)
   }
 
@@ -20,20 +19,21 @@
       parent.removeChild(before)
     }
     return fetch(`${BASE_URL}${id}`).then(e => e.text()).then(text => {
-      if(text.indexOf('요구시간') !== -1){
+      if (text.indexOf('요구시간') !== -1) {
         const splitted = text.split('요구시간')[1].split('<tbody>')[1]
-        if(splitted.indexOf('</tbody>') !== -1){
+        if (splitted.indexOf('</tbody>') !== -1) {
           let body = splitted.split('</tbody>')[0]
           const trs = body.split('<tr>')
           let notSignedUp = 0
           trs.forEach(tr => {
             const tds = tr.split(/\<td[^\>]*\>/)
-            if(tds.length > 1){
-              const requestText = ((tds[3] || '').match(/[0-9:]{0,10}/) || ['0'])[0]
-              const watchedText = ((tds[4] || '').match(/[0-9:]{0,10}/) || ['0'])[0]
+            if (tds.length > 1) {
+              const ln = tds.length
+              const requestText = ((tds[ln - 2] || '').match(/[0-9:]{0,10}/) || ['0'])[0]
+              const watchedText = ((tds[ln - 1] || '').match(/[0-9:]{0,10}/) || ['0'])[0]
               const requestTime = timeToDecimal(requestText)
               const watchedTime = timeToDecimal(watchedText)
-              if(requestText > watchedText) notSignedUp ++
+              if (requestTime > watchedTime) notSignedUp++
             }
           })
           const p = document.createElement('p')
@@ -63,7 +63,7 @@
   }
 
   if ((location.pathname || " ").substr(1).indexOf("/") === -1) {
-    applySignups()
+    setTimeout(applySignups, 2000)
     console.log("Signup Plugin!")
   }
 })()

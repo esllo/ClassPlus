@@ -12,10 +12,10 @@
   top: 8px;
   font-size: 14px;
   color: rgb(37, 45, 168);
-  height:20px;
-  overflow:hidden;
+  height: 20px;
+  overflow: hidden;
   margin: 0;
 }
-.cp-signup-label.accent{
+.cp-signup-label.accent {
   color: #ea2f41;
 }

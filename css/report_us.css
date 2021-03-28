@@ -12,10 +12,10 @@
   top: 8px;
   font-size: 14px;
   color: rgb(37, 45, 168);
-  height:20px;
+  height: 20px;
   overflow: hidden;
   margin: 0;
 }
-.cp-report-label.accent{
+.cp-report-label.accent {
   color: #ea2f41;
 }
