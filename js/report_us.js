@@ -31,19 +31,32 @@
   }
 
   function applyReports() {
-    Promise.allSettled([...document.querySelectorAll('.course_box > a')].map(({ parentElement, href }) => {
+    const courses = [...document.querySelectorAll('.course_box > a')]
+    // Async Load All
+    // Promise.allSettled(courses.map(({ parentElement, href }) => {
+    //   const match = href.match(/\?id=[0-9]{1,7}/g)
+    //   if (match) {
+    //     const [id] = match
+    //     return insertReportLabel(parentElement, id)
+    //   }
+    // })).then((res) => res.forEach(({ value: [parent, p] }) => parent && parent.appendChild(p))).finally(() => {
+    //   ClassPlus?.hideLoading()
+    // })
+    courses.forEach(({ parentElement, href }) => {
       const match = href.match(/\?id=[0-9]{1,7}/g)
       if (match) {
         const [id] = match
-        return insertReportLabel(parentElement, id)
+        insertReportLabel(parentElement, id).then(([parent, p]) => {
+          if (parent) {
+            parent.appendChild(p)
+          }
+        })
       }
-    })).then((res) => res.forEach(({ value: [parent, p] }) => parent && parent.appendChild(p))).finally(() => {
-      ClassPlus?.hideLoading()
     })
   }
 
   if ((location.pathname || " ").substr(1).indexOf("/") === -1) {
-    ClassPlus?.showLoading('미제출 과제 로딩중...')
+    // ClassPlus?.showLoading('미제출 과제 로딩중...')
     applyReports()
     console.log('Report Plugin!')
   }

@@ -53,17 +53,29 @@
   }
 
   function applySignups() {
-    Promise.allSettled([...document.querySelectorAll('.course_box > a')].map(({ parentElement, href }) => {
+    const courses = [...document.querySelectorAll('.course_box > a')]
+    // Promise.allSettled(courses.map(({ parentElement, href }) => {
+    //   const match = href.match(/\?id=[0-9]{1,7}/g)
+    //   if (match) {
+    //     const [id] = match
+    //     return insertSignupLabel(parentElement, id)
+    //   }
+    // })).then((res) => res.forEach(({ value: [parent, p] }) => parent && parent.appendChild(p)))
+    courses.forEach(({ parentElement, href }) => {
       const match = href.match(/\?id=[0-9]{1,7}/g)
       if (match) {
         const [id] = match
-        return insertSignupLabel(parentElement, id)
+        insertSignupLabel(parentElement, id).then(([parent, p]) => {
+          if (parent) {
+            parent.appendChild(p)
+          }
+        })
       }
-    })).then((res) => res.forEach(({ value: [parent, p] }) => parent && parent.appendChild(p)))
+    })
   }
 
   if ((location.pathname || " ").substr(1).indexOf("/") === -1) {
-    setTimeout(applySignups, 2000)
+    applySignups()
     console.log("Signup Plugin!")
   }
 })()
