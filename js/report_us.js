@@ -12,21 +12,26 @@
     }
     return fetch(`${BASE_URL}${id}`).then(e => e.text()).then(text => {
       const tbody = text.split('tbody')
+      let textValue = '미제출 과제 : '
+      let isAccent = false
       if (tbody.length === 3) {
         const [, html] = tbody
         const inProgress = (html.match(/\>미제출\</g) || []).length
-        const p = document.createElement('p')
-        p.className = `cp-report-label`
-        if (inProgress > 0) {
-          p.classList.add('accent')
-        }
-        p.textContent = `미제출 과제 : ${inProgress}`
-        const prof = parent.querySelector('.prof')
-        const left = prof.offsetLeft
-        p.style.left = `${left}px`
-        return [parent, p]
+        textValue += inProgress
+        isAccent = inProgress > 0
+      } else {
+        textValue += `-`
       }
-      return []
+      const p = document.createElement('p')
+      p.className = `cp-report-label`
+      if (isAccent) {
+        p.classList.add('accent')
+      }
+      p.textContent = textValue
+      const prof = parent.querySelector('.prof')
+      const left = prof.offsetLeft
+      p.style.left = `${left}px`
+      return [parent, p]
     })
   }
 
