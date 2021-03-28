@@ -29,7 +29,7 @@
     },
     {
       "matches": ["http://*.ac.kr/*", "https://*.ac.kr/*"],
-      "js": ["tableHelper.js", "shortcutHelper.js"]
+      "js": ["tableHelper.js", "shortcutHelper.js", "reportHelper.js"]
     }
   ],
   "web_accessible_resources": ["js/*.js", "css/*.css", "images/TR_GR.png"]

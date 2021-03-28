@@ -1,0 +1,21 @@
+.course_box {
+  position: relative;
+}
+.course-name {
+  display: flex;
+}
+.course-title {
+  margin-left: 116px !important;
+  flex: 1;
+  overflow: auto;
+}
+.course-title > .prof {
+  display: inline;
+}
+.cp-report-label {
+  position: absolute;
+  top: 8px;
+  font-size: 14px;
+  color: #ea2f41;
+  margin: 0;
+}
