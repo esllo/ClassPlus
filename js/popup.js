@@ -1,16 +1,18 @@
 (() => {
-  const _labels = ['table_us', 'video_us', 'short_us', 'report_us']
+  const _labels = ['table_us', 'video_us', 'short_us', 'report_us', 'signup_us']
   let _data = {
     table_us: true,
     video_us: false,
     short_us: true,
     report_us: true,
+    signup_us: true,
   }
   const _disabled = {
     table_us: false,
     video_us: true,
     short_us: false,
     report_us: false,
+    signup_us: false,
   }
   const _us = {}
 

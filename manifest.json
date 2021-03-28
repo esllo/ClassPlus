@@ -5,32 +5,55 @@
   "author": "esllo",
   "manifest_version": 2,
   "background": {
-    "scripts": ["background.js"]
+    "scripts": [
+      "background.js"
+    ]
   },
   "icons": {
     "128": "/images/TR_GR.png"
   },
-  "permissions": ["storage"],
+  "permissions": [
+    "storage"
+  ],
   "browser_action": {
     "default_popup": "popup.html"
   },
   "options_page": "popup.html",
   "content_scripts": [
     {
-      "matches": ["http://*.ac.kr/*", "https://*.ac.kr/*"],
-      "js": ["classplus.js"]
+      "matches": [
+        "http://*.ac.kr/*",
+        "https://*.ac.kr/*"
+      ],
+      "js": [
+        "classplus.js"
+      ]
     },
     {
       "matches": [
         "http://*.ac.kr/mod/vod/viewer.php*",
         "https://*.ac.kr/mod/vod/viewer.php*"
       ],
-      "js": ["videoHelper.js"]
+      "js": [
+        "videoHelper.js"
+      ]
     },
     {
-      "matches": ["http://*.ac.kr/*", "https://*.ac.kr/*"],
-      "js": ["tableHelper.js", "shortcutHelper.js", "reportHelper.js"]
+      "matches": [
+        "http://*.ac.kr/*",
+        "https://*.ac.kr/*"
+      ],
+      "js": [
+        "tableHelper.js",
+        "shortcutHelper.js",
+        "reportHelper.js",
+        "signupHelper.js"
+      ]
     }
   ],
-  "web_accessible_resources": ["js/*.js", "css/*.css", "images/TR_GR.png"]
+  "web_accessible_resources": [
+    "js/*.js",
+    "css/*.css",
+    "images/TR_GR.png"
+  ]
 }
