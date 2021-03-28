@@ -1,0 +1,44 @@
+@keyframes bounce {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(3px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  75% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+#cp-loading {
+  position: fixed;
+  min-width: 301px;
+  height: 44px;
+  margin: 0;
+  transition: all 0.5s;
+  bottom: -64px;
+  line-height: 44px;
+  background: #2566ca;
+  color: #fff;
+  right: 0;
+  border: 1px solid rgb(0, 100, 255);
+  padding: 0 12px;
+}
+#cp-loading.show {
+  bottom: 0px;
+}
+.cp-letter {
+  font-size: 16px;
+  animation-name: bounce;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  display: inline-block;
+  min-width: 4px;
+}
