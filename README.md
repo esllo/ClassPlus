@@ -1,6 +1,7 @@
 # ClassPlus
 코스모스  기능 확장 플러그인
 
+크롬 스토어 : [ClassPlus](https://chrome.google.com/webstore/detail/classplus/kmbnhpalnepccnjgaobhndnkimepecbl/related?hl=ko)
 
 ## Todo List
 
