@@ -3,6 +3,10 @@
   const HOST = location.host
   const BASE_URL = `${PROTOCOL}//${HOST}/mod/assign/`
 
+  function checkLangKor(){
+    return document.querySelector('.user-info-shortcut > li > a').textContent === '파일 관리'
+  }
+
   function insertReportLabel(parent, id) {
     const numId = id.split('=')[1]
     const elementId = `cp-report-${numId}`
@@ -12,11 +16,11 @@
     }
     return fetch(`${BASE_URL}${id}`).then(e => e.text()).then(text => {
       const tbody = text.split('tbody')
-      let textValue = '미제출 과제 : '
+      let textValue = checkLangKor() ? '미제출 과제 : ' : 'Assignments : '
       let isAccent = false
       if (tbody.length === 3) {
         const [, html] = tbody
-        const inProgress = (html.match(/\>미제출\</g) || []).length
+        const inProgress = (html.match(/\>(미제출|No\ssubmission)\</g) || []).length
         textValue += inProgress
         isAccent = inProgress > 0
       } else {
