@@ -33,6 +33,18 @@
     document.head.appendChild(style)
   }
 
+  function closeSocket() {
+    window.socket && window.socket.close()
+  }
+
+  function preventCheckerFunction() {
+    Object.defineProperty(window, 'remote_vod_pause', {
+      writable: false,
+      value: closeSocket
+    })
+    closeSocket()
+  }
+
   function insertElement() {
     const footer = document.getElementById('vod_footer')
 
@@ -47,7 +59,7 @@
     const groupedButton = document.createElement('div')
     groupedButton.className = 'cp-grouped-button'
 
-    const speeds = [0.6, 0.8, 1, 1.2, 1.5]
+    const speeds = [0.6, 0.8, 1, 1.2, 1.5, 1.7, 2.0]
     speeds.forEach((speed, index) => {
       const button = document.createElement('button')
       if (index == 2) {
@@ -74,5 +86,6 @@
 
   insertStyle()
   insertElement()
+  preventCheckerFunction()
   console.log('Video Plugin!')
 })()

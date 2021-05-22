@@ -1,6 +1,6 @@
 (() => {
   function checkCourseMos() {
-    return [...document.getElementsByTagName('script')].map(e => e.src).some(e => e.indexOf('coursemos.kr') != -1)
+    return [...document.getElementsByTagName('script')].map(e => e.src).some(e => e.indexOf('coursemos') != -1)
   }
 
   function insertJS(src) {
