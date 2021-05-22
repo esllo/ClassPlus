@@ -11,6 +11,10 @@
     }, 0)
   }
 
+  function checkLangKor(){
+    return document.querySelector('.user-info-shortcut > li > a').textContent === '파일 관리'
+  }
+
   function insertSignupLabel(parent, id) {
     const numId = id.split('=')[1]
     const elementId = `cp-signup-${numId}`
@@ -19,10 +23,15 @@
       parent.removeChild(before)
     }
     return fetch(`${BASE_URL}${id}`).then(e => e.text()).then(text => {
-      let textValue = '미수강 영상 : '
+      let textValue = checkLangKor() ? '미수강 영상 : ' : 'Not Watched : '
       let isAccent = false
-      if (text.indexOf('요구시간') !== -1) {
-        const splitted = text.split('요구시간')[1].split('<tbody>')[1]
+      if (text.indexOf('요구시간') !== -1 || text.indexOf('Required</th>') !== -1) {
+        let divider = '요구시간'
+        if(text.indexOf('Required</th>')!==-1){
+          divider = 'Required</th>'
+        }
+        const splitted = text.split(divider)[1].split('<tbody>')[1]
+
         let body = splitted.split('</tbody>')[0]
         const trs = body.split('<tr>')
         let notSignedUp = 0
@@ -35,6 +44,7 @@
             const requestTime = timeToDecimal(requestText)
             const watchedTime = timeToDecimal(watchedText)
             if (requestTime > watchedTime) notSignedUp++
+            console.log(requestText, watchedText)
           }
         })
         textValue += notSignedUp
@@ -49,7 +59,7 @@
       }
       p.textContent = textValue
       const prof = parent.querySelector('.prof')
-      const left = prof.offsetLeft + 108
+      const left = prof.offsetLeft + 116
       p.style.left = `${left}px`
       return [parent, p]
     })
