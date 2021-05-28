@@ -9,7 +9,7 @@ body {
   align-items: center;
   justify-content: center;
   background: rgb(0, 0, 0, 0.9);
-  height: 100vh;
+  min-height: 328px;
 }
 
 input[type='checkbox'] {
