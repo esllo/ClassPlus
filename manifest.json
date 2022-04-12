@@ -1,7 +1,7 @@
 {
   "name": "ClassPlus",
   "description": "코스모스 플랫폼 학생을 위한 확장 프로그램",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "esllo",
   "manifest_version": 2,
   "background": {
