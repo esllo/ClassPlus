@@ -84,8 +84,13 @@
     jwplayer().setPlaybackRate(Number(speed))
   }
 
+  function removeSeekListener() {
+    jwplayer()._events.seek = []
+  }
+
   insertStyle()
   insertElement()
   preventCheckerFunction()
+  removeSeekListener()
   console.log('Video Plugin!')
 })()
